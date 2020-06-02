@@ -15,8 +15,12 @@ public class BaseTest implements IDriver {
     private static AppiumDriver appiumDriver; // singleton
     private static IPageObject pageObject;
 
+
+
     @Override
-    public AppiumDriver getDriver() { return appiumDriver; }
+    public AppiumDriver getDriver() {
+        return appiumDriver;
+    }
 
     public IPageObject getPageObject() {
         return pageObject;
@@ -30,8 +34,6 @@ public class BaseTest implements IDriver {
         setPageObject(appType, appiumDriver);
 
     }
-
-
 
     private void setAppiumDriver(String platformName, String deviceName, String browserName, String app) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
