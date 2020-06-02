@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
-    IPageObject pageObject;
+    private static IPageObject pageObject;
 
     @Override
     public AppiumDriver getDriver() { return appiumDriver; }
@@ -46,7 +46,7 @@ public class BaseTest implements IDriver {
         capabilities.setCapability("automationName", "UiAutomator1");
 
 
-        appiumDriver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        appiumDriver = new AppiumDriver(new URL(System.getProperty("ts.appium")), capabilities);
 
         // Timeouts tuning
         appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

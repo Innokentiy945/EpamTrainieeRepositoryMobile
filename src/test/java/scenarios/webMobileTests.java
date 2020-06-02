@@ -21,9 +21,10 @@ public class webMobileTests extends BaseTest {
         // Make sure that page has been loaded completely
         new WebDriverWait(getDriver(), 10).until(wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
 
-        getDriver().findElement(By.xpath("//input[@name='q']")).sendKeys(DataReader.getProperty("request"));
-        getDriver().findElement(By.xpath("//button[@class='Tg7LZd']")).click();
-        WebElement result = getDriver().findElement(By.xpath("//div[contains(text(),'EPAM | Enterprise Software Development, Design & Consulting')]"));
+        getPageObject().getWebelement("enterWord").sendKeys(DataReader.getProperty("request"));
+        getPageObject().getWebelement("searchButton").click();
+
+        WebElement result = getPageObject().getWebelement("firstResult");
         Assert.assertEquals(result.getText(), "EPAM | Enterprise Software Development, Design & Consulting");
 
 
