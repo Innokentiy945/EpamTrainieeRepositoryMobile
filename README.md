@@ -1,4 +1,4 @@
-# InnokentiyObraztcovMobile
+# EpamTrainieeRepositoryMobile
 Mobile home tasks for Epam lab
 
 For running native application test:
